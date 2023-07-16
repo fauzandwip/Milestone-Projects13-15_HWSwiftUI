@@ -10,10 +10,8 @@ import SwiftUI
 struct AddContactView: View {
     @Environment(\.dismiss) var dismiss
     
-    @EnvironmentObject var vm: AddContactViewModel
-    var onSave: (Contact) -> Void
-    
-    
+    @EnvironmentObject var contactsVM: ContactsViewModel
+    @StateObject private var vm = AddContactViewModel()
     
     var body: some View {
         NavigationView {
@@ -63,7 +61,7 @@ struct AddContactView: View {
         guard vm.textName != "" else { return }
         
         let newContact = Contact(name: vm.textName)
-        onSave(newContact)
+        contactsVM.addContact(contact: newContact)
         
         dismiss()
     }
@@ -71,6 +69,6 @@ struct AddContactView: View {
 
 struct AddContactView_Previews: PreviewProvider {
     static var previews: some View {
-        AddContactView() { _ in }
+        AddContactView()
     }
 }

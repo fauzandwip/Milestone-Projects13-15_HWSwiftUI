@@ -46,10 +46,8 @@ struct ContentView: View {
                 .foregroundColor(.black)
             }
             .sheet(isPresented: $vm.showingAddContact) {
-                AddContactView() { newContact in
-                    vm.addContact(contact: newContact)
-                }
-                    .environmentObject(AddContactViewModel())
+                AddContactView()
+                    .environmentObject(vm)
             }
         }
     }
