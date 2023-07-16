@@ -10,11 +10,10 @@ import SwiftUI
 struct AddContactView: View {
     @Environment(\.dismiss) var dismiss
     
-    @State private var inputImage: UIImage?
-    @ObservedObject var vm: ContactsViewModel
+    @EnvironmentObject var vm: AddContactViewModel
+    var onSave: (Contact) -> Void
     
-    @State private var textName = ""
-    @State private var showingPicker = false
+    
     
     var body: some View {
         NavigationView {
@@ -28,19 +27,19 @@ struct AddContactView: View {
                             .font(.headline)
                             .foregroundColor(.white)
                         
-                        Image(uiImage: inputImage ?? UIImage())
+                        Image(uiImage: vm.inputImage ?? UIImage())
                             .resizable()
                             .scaledToFill()
                             .frame(maxWidth: 500, maxHeight: 400)
                     }
                     .onTapGesture {
-                        showingPicker = true
+                        vm.showingPicker = true
                     }
                     .scaledToFill()
                 }
                 
                 Section("Name") {
-                    TextField("name", text: $textName)
+                    TextField("name", text: $vm.textName)
                 }
             }
             .navigationTitle("Add Contact")
@@ -53,19 +52,18 @@ struct AddContactView: View {
                         .font(.headline)
                 }
             }
-            .sheet(isPresented: $showingPicker) {
-                ImagePicker(image: $inputImage)
+            .sheet(isPresented: $vm.showingPicker) {
+                ImagePicker(image: $vm.inputImage)
             }
         }
     }
     
     func addContact() {
-//        guard let inputImage = self.inputImage else { return }
-        guard self.inputImage != nil else { return }
-        guard textName != "" else { return }
+        guard vm.inputImage != nil else { return }
+        guard vm.textName != "" else { return }
         
-        let newContact = Contact(name: textName)
-        vm.addContact(contact: newContact)
+        let newContact = Contact(name: vm.textName)
+        onSave(newContact)
         
         dismiss()
     }
@@ -73,6 +71,6 @@ struct AddContactView: View {
 
 struct AddContactView_Previews: PreviewProvider {
     static var previews: some View {
-        AddContactView(vm: ContactsViewModel())
+        AddContactView() { _ in }
     }
 }

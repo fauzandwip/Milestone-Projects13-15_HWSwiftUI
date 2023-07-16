@@ -8,7 +8,10 @@
 import Foundation
 
 class ContactsViewModel: ObservableObject {
-    @Published var contacts = [Contact(name: "Test")]
+    @Published private(set) var contacts = [Contact(name: "Test")]
+    
+    @Published var showingAddContact = false
+    @Published var showingPicker = false
     
     func addContact(contact: Contact) {
         contacts.append(contact)

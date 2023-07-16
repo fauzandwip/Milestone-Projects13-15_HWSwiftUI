@@ -8,13 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let contactsDummy = [
-        "Albert", "Austin", "Wilkins", "Erik", "Ian Dole", "Irene", "Joseph Gonzalez", "Ludovic", "Sherina", "Heftiba"
-    ]
-    
     @StateObject var vm = ContactsViewModel()
-    @State private var showingAddContact = false
-    @State private var showingPicker = false
     
     var body: some View {
         NavigationView {
@@ -45,15 +39,17 @@ struct ContentView: View {
             .navigationTitle("Friendly Contacts")
             .toolbar {
                 Button {
-                    showingAddContact = true
-                    print(vm.contacts.count)
+                    vm.showingAddContact = true
                 } label: {
                     Image(systemName: "plus")
                 }
                 .foregroundColor(.black)
             }
-            .sheet(isPresented: $showingAddContact) {
-                AddContactView(vm: vm)
+            .sheet(isPresented: $vm.showingAddContact) {
+                AddContactView() { newContact in
+                    vm.addContact(contact: newContact)
+                }
+                    .environmentObject(AddContactViewModel())
             }
         }
     }

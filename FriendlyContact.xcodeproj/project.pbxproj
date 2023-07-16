@@ -16,6 +16,7 @@
 		7B066D9B2A63AF4000399269 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066D9A2A63AF4000399269 /* Contact.swift */; };
 		7B066D9E2A63B05F00399269 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066D9D2A63B05F00399269 /* AddContactView.swift */; };
 		7B066DA02A63BBDA00399269 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066D9F2A63BBDA00399269 /* ContactsViewModel.swift */; };
+		7B066DA32A63CAF000399269 /* AddContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066DA22A63CAF000399269 /* AddContactViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		7B066D9A2A63AF4000399269 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		7B066D9D2A63B05F00399269 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		7B066D9F2A63BBDA00399269 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
+		7B066DA22A63CAF000399269 /* AddContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				7B066D9F2A63BBDA00399269 /* ContactsViewModel.swift */,
+				7B066DA22A63CAF000399269 /* AddContactViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				7B066D9B2A63AF4000399269 /* Contact.swift in Sources */,
 				7B066DA02A63BBDA00399269 /* ContactsViewModel.swift in Sources */,
 				7B066D9E2A63B05F00399269 /* AddContactView.swift in Sources */,
+				7B066DA32A63CAF000399269 /* AddContactViewModel.swift in Sources */,
 				7B066D962A63A74500399269 /* DetailView.swift in Sources */,
 				7B066D882A63A0CB00399269 /* FriendlyContactApp.swift in Sources */,
 			);
