@@ -5,10 +5,10 @@
 //  Created by Fauzan Dwi Prasetyo on 16/07/23.
 //
 
-import Foundation
+import SwiftUI
 
 class ContactsViewModel: ObservableObject {
-    @Published private(set) var contacts = [Contact(name: "Test")]
+    @Published private(set) var contacts = [Contact]()
     
     @Published var showingAddContact = false
     @Published var showingPicker = false

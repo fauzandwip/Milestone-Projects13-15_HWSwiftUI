@@ -17,6 +17,7 @@
 		7B066D9E2A63B05F00399269 /* AddContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066D9D2A63B05F00399269 /* AddContactView.swift */; };
 		7B066DA02A63BBDA00399269 /* ContactsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066D9F2A63BBDA00399269 /* ContactsViewModel.swift */; };
 		7B066DA32A63CAF000399269 /* AddContactViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B066DA22A63CAF000399269 /* AddContactViewModel.swift */; };
+		7B51F38A2A6643C4008C77C5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51F3892A6643C4008C77C5 /* ImageUtils.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		7B066D9D2A63B05F00399269 /* AddContactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactView.swift; sourceTree = "<group>"; };
 		7B066D9F2A63BBDA00399269 /* ContactsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsViewModel.swift; sourceTree = "<group>"; };
 		7B066DA22A63CAF000399269 /* AddContactViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactViewModel.swift; sourceTree = "<group>"; };
+		7B51F3892A6643C4008C77C5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				7B066D872A63A0CB00399269 /* FriendlyContactApp.swift */,
+				7B51F3882A664216008C77C5 /* Utils */,
 				7B066D992A63AF2500399269 /* Model */,
 				7B066D9C2A63AF8700399269 /* View */,
 				7B066DA12A63BC0400399269 /* ViewModel */,
@@ -107,6 +110,14 @@
 				7B066DA22A63CAF000399269 /* AddContactViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		7B51F3882A664216008C77C5 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7B51F3892A6643C4008C77C5 /* ImageUtils.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +192,7 @@
 			files = (
 				7B066D8A2A63A0CB00399269 /* ContentView.swift in Sources */,
 				7B066D982A63ABF400399269 /* ImagePicker.swift in Sources */,
+				7B51F38A2A6643C4008C77C5 /* ImageUtils.swift in Sources */,
 				7B066D9B2A63AF4000399269 /* Contact.swift in Sources */,
 				7B066DA02A63BBDA00399269 /* ContactsViewModel.swift in Sources */,
 				7B066D9E2A63B05F00399269 /* AddContactView.swift in Sources */,

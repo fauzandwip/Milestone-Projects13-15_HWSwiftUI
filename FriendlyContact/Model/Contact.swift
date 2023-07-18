@@ -9,6 +9,6 @@ import SwiftUI
 
 struct Contact: Identifiable {
     let id = UUID()
-    let name: String
-//    let image: UIImage
+    var name: String
+    var imagePath: String?
 }
