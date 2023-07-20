@@ -10,7 +10,7 @@ import Foundation
 class ImageUtils {
     
     func setImage(imageData: Data) -> String? {
-        let url = getDocumentsDirectory().appendingPathComponent(UUID().uuidString)
+        let url = FileManager.documentsDirectory.appendingPathComponent(UUID().uuidString)
         
         do {
             try imageData.write(to: url, options: [.atomic, .completeFileProtection])
@@ -25,17 +25,11 @@ class ImageUtils {
     func getImage(imagePath: String?) -> Data?{
         guard let imagePath = imagePath else { return nil }
         
-        let url = getDocumentsDirectory().appendingPathComponent(imagePath)
+        let url = FileManager.documentsDirectory.appendingPathComponent(imagePath)
         if let data = try? Data(contentsOf: url) {
             return data
         }
         
         return nil
-    }
-    
-    func getDocumentsDirectory() -> URL {
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        
-        return paths[0]
     }
 }

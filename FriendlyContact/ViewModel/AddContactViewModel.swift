@@ -15,8 +15,6 @@ class AddContactViewModel: ObservableObject {
     @Published var textName = ""
     @Published var showingPicker = false
     
-    var newContact: Contact?
-    
     init(contactsVM: ContactsViewModel) {
         _contactsVM = ObservedObject(initialValue: contactsVM)
     }
@@ -25,19 +23,21 @@ class AddContactViewModel: ObservableObject {
         guard inputImage != nil else { return }
         guard textName != "" else { return }
         
-        newContact = Contact(name: textName, imagePath: nil)
+        var newContact = Contact(name: textName, imagePath: nil)
 //        print(newContact!)
-        setImage(uiImage: inputImage)
+        newContact.imagePath = setImage(uiImage: inputImage)
 //        print(newContact!)
-        contactsVM.addContact(contact: newContact!)
+        contactsVM.addContact(contact: newContact)
 //        print(contactsVM.contacts)
     }
     
-    func setImage(uiImage: UIImage?) {
+    func setImage(uiImage: UIImage?) -> String? {
         if let uiImage = uiImage {
             if let data = uiImage.jpegData(compressionQuality: 0.8) {
-                newContact?.imagePath = ImageUtils().setImage(imageData: data)
+                return ImageUtils().setImage(imageData: data)
             }
         }
+        
+        return nil
     }
 }

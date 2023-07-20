@@ -15,10 +15,10 @@ struct ContentView: View {
             List {
                 ForEach(vm.contacts) { contact in
                     NavigationLink {
-                        DetailView(image: getImage(contact: contact), contactName: contact.name)
+                        DetailView(image: contact.image, contactName: contact.name)
                     } label: {
                         HStack {
-                            getImage(contact: contact)
+                            contact.image
                                 .resizable()
                                 .scaledToFill()
                                 .frame(width: 100, height: 100)
@@ -48,16 +48,6 @@ struct ContentView: View {
                     .environmentObject(vm)
             }
         }
-    }
-    
-    func getImage(contact: Contact) -> Image {
-        if let data = ImageUtils().getImage(imagePath: contact.imagePath) {
-            if let uiImage = UIImage(data: data) {
-                return Image(uiImage: uiImage)
-            }
-        }
-        
-        return Image("")
     }
 }
 
