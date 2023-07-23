@@ -44,17 +44,30 @@ struct AddContactView: View {
             }
             .navigationTitle("Add Contact")
             .navigationBarTitleDisplayMode(.inline)
+            // add button
             .toolbar {
                 Button {
-                    vm.addContact()
-                    dismiss()
+                    vm.isFilled()
                 } label: {
                     Text("Add")
                         .font(.headline)
                 }
             }
+            // image picker
             .sheet(isPresented: $vm.showingPicker) {
                 ImagePicker(image: $vm.inputImage)
+            }
+            // alert
+            .alert("Please fill", isPresented: $vm.showingAlert) {
+                if vm.inputImage != nil && vm.textName != "" {
+                    Button("OK") {
+                        vm.addContact()
+                        dismiss()
+                    }
+                }
+                Button("Cancel", role: .cancel) {}
+            } message: {
+                Text(vm.alertMessage)
             }
         }
     }

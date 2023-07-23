@@ -14,6 +14,8 @@ class AddContactViewModel: ObservableObject {
     @Published var inputImage: UIImage?
     @Published var textName = ""
     @Published var showingPicker = false
+    @Published var showingAlert = false
+    @Published var alertMessage = ""
     
     init(contactsVM: ContactsViewModel) {
         _contactsVM = ObservedObject(initialValue: contactsVM)
@@ -36,5 +38,17 @@ class AddContactViewModel: ObservableObject {
         }
         
         return nil
+    }
+    
+    func isFilled() {
+        showingAlert = true
+        
+        if inputImage == nil {
+            alertMessage = "Image can't be empty"
+        } else if textName == "" {
+            alertMessage = "Name can't be empty"
+        } else {
+            alertMessage = "Are u sure, to save the contact?"
+        }
     }
 }

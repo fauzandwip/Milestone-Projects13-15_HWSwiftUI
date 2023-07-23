@@ -21,7 +21,6 @@ class FileContacts: ContactsViewModel {
             let data = try Data(contentsOf: savePath)
             let decoded = try JSONDecoder().decode([Contact].self, from: data)
             contacts = decoded
-            print(FileManager.documentsDirectory)
             contacts.sort()
         } catch {
             contacts = []
