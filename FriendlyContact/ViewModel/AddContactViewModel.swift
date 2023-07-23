@@ -24,11 +24,8 @@ class AddContactViewModel: ObservableObject {
         guard textName != "" else { return }
         
         var newContact = Contact(name: textName, imagePath: nil)
-//        print(newContact)
         newContact.imagePath = setImage(uiImage: inputImage)
-//        print(newContact)
         contactsVM.add(contact: newContact)
-//        print(contactsVM.contacts)
     }
     
     func setImage(uiImage: UIImage?) -> String? {

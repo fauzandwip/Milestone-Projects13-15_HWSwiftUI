@@ -36,6 +36,7 @@ struct ContentView: View {
                     .cornerRadius(30)
                     .listRowSeparator(.hidden)
                 }
+                .onDelete(perform: vm.remove)
             }
             .listStyle(.plain)
             .navigationTitle("Friendly Contacts")

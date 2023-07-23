@@ -21,6 +21,7 @@ class FileContacts: ContactsViewModel {
             let data = try Data(contentsOf: savePath)
             let decoded = try JSONDecoder().decode([Contact].self, from: data)
             contacts = decoded
+            print(FileManager.documentsDirectory)
             contacts.sort()
         } catch {
             contacts = []
@@ -30,6 +31,15 @@ class FileContacts: ContactsViewModel {
     override func add(contact: Contact) {
         contacts.append(contact)
         contacts.sort()
+        saveData()
+    }
+    
+    override func remove(at offsets: IndexSet) {
+        if let index = offsets.first {
+            let imagePath = contacts[index].imagePath
+            deleteImage(imagePath: imagePath)
+        }
+        contacts.remove(atOffsets: offsets)
         saveData()
     }
     

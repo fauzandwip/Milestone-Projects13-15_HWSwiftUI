@@ -11,7 +11,7 @@ class ImageUtils {
     
     func setImage(imageData: Data) -> String? {
         let url = FileManager.documentsDirectory.appendingPathComponent(UUID().uuidString)
-        
+        print(url)
         do {
             try imageData.write(to: url, options: [.atomic, .completeFileProtection])
             return url.lastPathComponent
@@ -31,5 +31,17 @@ class ImageUtils {
         }
         
         return nil
+    }
+    
+    func deleteImage(imagePath: String?) {
+        guard let imagePath = imagePath else { return }
+        
+        let url = FileManager.documentsDirectory.appendingPathComponent(imagePath)
+        
+        do {
+            try FileManager.default.removeItem(at: url)
+        } catch {
+            fatalError("Failed to delete image from \(url): \(error.localizedDescription)")
+        }
     }
 }

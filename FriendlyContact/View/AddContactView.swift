@@ -9,11 +9,7 @@ import SwiftUI
 
 struct AddContactView: View {
     @Environment(\.dismiss) var dismiss
-    
-//    @EnvironmentObject static var contactsVM: ContactsViewModel
-//    @StateObject var vm = AddContactViewModel()
     @StateObject private var vm: AddContactViewModel
-//    @StateObject private var imageVM = ImageViewModel(contact: <#T##Contact#>)
     
     init(contactsVM: ContactsViewModel) {
         _vm = StateObject(wrappedValue: AddContactViewModel(contactsVM: contactsVM))
@@ -50,7 +46,6 @@ struct AddContactView: View {
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button {
-                    // addContact()
                     vm.addContact()
                     dismiss()
                 } label: {
@@ -63,16 +58,6 @@ struct AddContactView: View {
             }
         }
     }
-    
-//    func addContact() {
-//        guard vm.inputImage != nil else { return }
-//        guard vm.textName != "" else { return }
-//
-//        let newContact = Contact(name: vm.textName)
-//        contactsVM.addContact(contact: newContact)
-//
-//        dismiss()
-//    }
 }
 
 struct AddContactView_Previews: PreviewProvider {

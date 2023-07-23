@@ -10,9 +10,6 @@ import Foundation
 import CoreData
 
 @objc(ContactCoreData)
-public class ContactCoreData: NSManagedObject, Comparable {
-
-    public static func <(lhs: ContactCoreData, rhs: ContactCoreData) -> Bool {
-        lhs.name < rhs.name
-    }
+public class ContactCoreData: NSManagedObject {
+    
 }
