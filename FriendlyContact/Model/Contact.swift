@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Contact: Identifiable, Codable {
+struct Contact: Identifiable, Codable, Comparable {
     var id = UUID()
     var name: String
     var imagePath: String?
@@ -19,5 +19,9 @@ struct Contact: Identifiable, Codable {
             }
         }
         return Image("")
+    }
+    
+    static func <(lhs: Contact, rhs: Contact) -> Bool {
+        lhs.name < rhs.name
     }
 }

@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct FriendlyContactApp: App {
+//    private var viewModel: ContactsViewModel = FileContacts()
+    private var viewModel: ContactsViewModel = ContactsCoreData()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(vm: viewModel)
         }
     }
 }

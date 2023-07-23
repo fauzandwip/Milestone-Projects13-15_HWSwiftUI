@@ -24,10 +24,10 @@ class AddContactViewModel: ObservableObject {
         guard textName != "" else { return }
         
         var newContact = Contact(name: textName, imagePath: nil)
-//        print(newContact!)
+//        print(newContact)
         newContact.imagePath = setImage(uiImage: inputImage)
-//        print(newContact!)
-        contactsVM.addContact(contact: newContact)
+//        print(newContact)
+        contactsVM.add(contact: newContact)
 //        print(contactsVM.contacts)
     }
     

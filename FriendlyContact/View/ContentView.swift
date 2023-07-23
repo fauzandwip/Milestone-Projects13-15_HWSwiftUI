@@ -8,7 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
-    @StateObject var vm = ContactsViewModel()
+    @StateObject var vm: ContactsViewModel
+    
+    init(vm: ContactsViewModel) {
+        _vm = StateObject(wrappedValue: vm)
+    }
     
     var body: some View {
         NavigationView {
@@ -53,6 +57,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(vm: FileContacts())
     }
 }
