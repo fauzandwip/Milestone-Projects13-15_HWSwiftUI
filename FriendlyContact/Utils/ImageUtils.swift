@@ -11,7 +11,7 @@ class ImageUtils {
     
     func setImage(imageData: Data) -> String? {
         let url = FileManager.documentsDirectory.appendingPathComponent(UUID().uuidString)
-        print(url)
+        
         do {
             try imageData.write(to: url, options: [.atomic, .completeFileProtection])
             return url.lastPathComponent

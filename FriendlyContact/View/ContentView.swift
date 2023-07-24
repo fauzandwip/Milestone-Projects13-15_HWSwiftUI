@@ -19,7 +19,7 @@ struct ContentView: View {
             List {
                 ForEach(vm.contacts) { contact in
                     NavigationLink {
-                        DetailView(image: contact.image, contactName: contact.name)
+                        DetailView(contact: contact)
                     } label: {
                         HStack {
                             contact.image
@@ -46,7 +46,7 @@ struct ContentView: View {
                 } label: {
                     Image(systemName: "plus")
                 }
-                .foregroundColor(.black)
+                .foregroundColor(.primary)
             }
             .sheet(isPresented: $vm.showingAddContact) {
                 AddContactView(contactsVM: vm)

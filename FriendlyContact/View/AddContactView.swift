@@ -41,6 +41,30 @@ struct AddContactView: View {
                 Section("Name") {
                     TextField("name", text: $vm.textName)
                 }
+                
+                Group {
+                    Section("Location") {
+                        Toggle("With location?", isOn: $vm.locationSwitchOn)
+                            .onChange(of: vm.locationSwitchOn) { newValue in
+                                if newValue {
+                                    vm.locationFetcher.start()
+                                } else {
+                                    vm.location = nil
+                                }
+                            }
+                        
+                        // add location
+                        if vm.locationSwitchOn {
+                            Button {
+                                vm.location = vm.locationFetcher.lastKnownLocation
+                                
+                                vm.showingAlertLocation = true
+                            } label: {
+                                Label("Share My Current Location", systemImage: "location.viewfinder")
+                            }
+                        }
+                    }
+                }
             }
             .navigationTitle("Add Contact")
             .navigationBarTitleDisplayMode(.inline)
@@ -49,7 +73,7 @@ struct AddContactView: View {
                 Button {
                     vm.isFilled()
                 } label: {
-                    Text("Add")
+                    Text("Save")
                         .font(.headline)
                 }
             }
@@ -57,8 +81,14 @@ struct AddContactView: View {
             .sheet(isPresented: $vm.showingPicker) {
                 ImagePicker(image: $vm.inputImage)
             }
-            // alert
-            .alert("Please fill", isPresented: $vm.showingAlert) {
+            // save location alert
+            .alert("Location saved!", isPresented: $vm.showingAlertLocation) {
+                Button("OK") {}
+            } message: {
+                Text("Your location will be displayd in detail contact.")
+            }
+            // saving alert
+            .alert("Please", isPresented: $vm.showingAlert) {
                 if vm.inputImage != nil && vm.textName != "" {
                     Button("OK") {
                         vm.addContact()

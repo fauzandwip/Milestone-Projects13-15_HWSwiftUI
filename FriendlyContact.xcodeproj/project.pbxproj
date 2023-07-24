@@ -22,6 +22,7 @@
 		7B42230D2A69A2180053969A /* ContactCoreData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42230B2A69A2180053969A /* ContactCoreData+CoreDataClass.swift */; };
 		7B42230E2A69A2180053969A /* ContactCoreData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42230C2A69A2180053969A /* ContactCoreData+CoreDataProperties.swift */; };
 		7B4223102A6A7D670053969A /* FileContacts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B42230F2A6A7D670053969A /* FileContacts.swift */; };
+		7B46AE7F2A6E6F9A0043B21E /* LocationFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B46AE7E2A6E6F9A0043B21E /* LocationFetcher.swift */; };
 		7B51F38A2A6643C4008C77C5 /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51F3892A6643C4008C77C5 /* ImageUtils.swift */; };
 		7B51F38E2A6697D5008C77C5 /* FileManager-DocDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51F38D2A6697D5008C77C5 /* FileManager-DocDirectory.swift */; };
 /* End PBXBuildFile section */
@@ -43,6 +44,7 @@
 		7B42230B2A69A2180053969A /* ContactCoreData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactCoreData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7B42230C2A69A2180053969A /* ContactCoreData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContactCoreData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7B42230F2A6A7D670053969A /* FileContacts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileContacts.swift; sourceTree = "<group>"; };
+		7B46AE7E2A6E6F9A0043B21E /* LocationFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFetcher.swift; sourceTree = "<group>"; };
 		7B51F3892A6643C4008C77C5 /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		7B51F38D2A6697D5008C77C5 /* FileManager-DocDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocDirectory.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -122,6 +124,8 @@
 			children = (
 				7B066D9F2A63BBDA00399269 /* ContactsViewModel.swift */,
 				7B066DA22A63CAF000399269 /* AddContactViewModel.swift */,
+				7B42230F2A6A7D670053969A /* FileContacts.swift */,
+				7B46AE7E2A6E6F9A0043B21E /* LocationFetcher.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -149,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				7B51F38D2A6697D5008C77C5 /* FileManager-DocDirectory.swift */,
-				7B42230F2A6A7D670053969A /* FileContacts.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				7B066DA02A63BBDA00399269 /* ContactsViewModel.swift in Sources */,
 				7B066D9E2A63B05F00399269 /* AddContactView.swift in Sources */,
 				7B4223102A6A7D670053969A /* FileContacts.swift in Sources */,
+				7B46AE7F2A6E6F9A0043B21E /* LocationFetcher.swift in Sources */,
 				7B066DA32A63CAF000399269 /* AddContactViewModel.swift in Sources */,
 				7B066D962A63A74500399269 /* DetailView.swift in Sources */,
 				7B066D882A63A0CB00399269 /* FriendlyContactApp.swift in Sources */,
@@ -370,6 +374,7 @@
 				DEVELOPMENT_TEAM = B9S7PB8R45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your access location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -399,6 +404,7 @@
 				DEVELOPMENT_TEAM = B9S7PB8R45;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your access location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

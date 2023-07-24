@@ -80,9 +80,6 @@ class ContactsCoreData: ContactsViewModel {
             items.append(newContact)
             contacts.append(contact)
         }
-        
-//        print("add Core Data")
-//        print(items)
     }
     
     override func remove(at offsets: IndexSet) {
@@ -100,7 +97,6 @@ class ContactsCoreData: ContactsViewModel {
         if container.viewContext.hasChanges {
             do {
                 try container.viewContext.save()
-                print("save Core Data")
             } catch {
                 fatalError("Failed save data to Core Data: \(error)")
             }

@@ -5,17 +5,23 @@
 //  Created by Fauzan Dwi Prasetyo on 16/07/23.
 //
 
+import CoreLocation
 import SwiftUI
 
 class AddContactViewModel: ObservableObject {
     
     @ObservedObject var contactsVM: ContactsViewModel
+    let locationFetcher = LocationFetcher()
     
     @Published var inputImage: UIImage?
     @Published var textName = ""
+    @Published var location: CLLocationCoordinate2D?
+    
     @Published var showingPicker = false
     @Published var showingAlert = false
     @Published var alertMessage = ""
+    @Published var locationSwitchOn = false
+    @Published var showingAlertLocation = false
     
     init(contactsVM: ContactsViewModel) {
         _contactsVM = ObservedObject(initialValue: contactsVM)
@@ -27,6 +33,8 @@ class AddContactViewModel: ObservableObject {
         
         var newContact = Contact(name: textName, imagePath: nil)
         newContact.imagePath = setImage(uiImage: inputImage)
+        newContact.latitude = location?.latitude
+        newContact.longitude = location?.longitude
         contactsVM.add(contact: newContact)
     }
     
