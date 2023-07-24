@@ -57,7 +57,7 @@ struct AddContactView: View {
                         if vm.locationSwitchOn {
                             Button {
                                 vm.location = vm.locationFetcher.lastKnownLocation
-                                
+                                vm.locationRecord = true
                                 vm.showingAlertLocation = true
                             } label: {
                                 Label("Share My Current Location", systemImage: "location.viewfinder")
@@ -85,7 +85,7 @@ struct AddContactView: View {
             .alert("Location saved!", isPresented: $vm.showingAlertLocation) {
                 Button("OK") {}
             } message: {
-                Text("Your location will be displayd in detail contact.")
+                Text("Your location will be displayed in detail contact.")
             }
             // saving alert
             .alert("Please", isPresented: $vm.showingAlert) {

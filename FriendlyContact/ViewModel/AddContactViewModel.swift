@@ -15,6 +15,7 @@ class AddContactViewModel: ObservableObject {
     
     @Published var inputImage: UIImage?
     @Published var textName = ""
+    @Published var locationRecord = false
     @Published var location: CLLocationCoordinate2D?
     
     @Published var showingPicker = false
@@ -33,8 +34,10 @@ class AddContactViewModel: ObservableObject {
         
         var newContact = Contact(name: textName, imagePath: nil)
         newContact.imagePath = setImage(uiImage: inputImage)
-        newContact.latitude = location?.latitude
-        newContact.longitude = location?.longitude
+        newContact.locationRecord = locationRecord
+        newContact.latitude = location?.latitude ?? 0
+        newContact.longitude = location?.longitude ?? 0
+        
         contactsVM.add(contact: newContact)
     }
     

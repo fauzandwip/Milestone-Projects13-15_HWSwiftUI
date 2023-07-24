@@ -57,7 +57,13 @@ class ContactsCoreData: ContactsViewModel {
                     item.id = id
                 }
                 
-                let contact = Contact(id: id, name: item.name, imagePath: item.imagePath)
+                let contact = Contact(
+                    id: id,
+                    name: item.name,
+                    imagePath: item.imagePath,
+                    locationRecord: item.locationRecord,
+                    latitude: item.latitude,
+                    longitude: item.longitude)
                 contacts.append(contact)
             }
             
@@ -72,6 +78,9 @@ class ContactsCoreData: ContactsViewModel {
         newContact.id = contact.id
         newContact.contactName = contact.name
         newContact.imagePath = contact.imagePath
+        newContact.locationRecord = contact.locationRecord
+        newContact.latitude = contact.latitude
+        newContact.longitude = contact.longitude
         
         if let index = items.firstIndex(where: { $0.name > contact.name }) {
             items.insert(newContact, at: index)

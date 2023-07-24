@@ -4,6 +4,9 @@
         <attribute name="contactName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="imagePath" optional="YES" attributeType="String"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="locationRecord" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
         <uniquenessConstraints>
             <uniquenessConstraint>
                 <constraint value="id"/>

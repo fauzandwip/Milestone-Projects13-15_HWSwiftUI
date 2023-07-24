@@ -9,7 +9,7 @@ import Foundation
 
 class FileContacts: ContactsViewModel {
     
-    let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedContacts")
+    let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedContacts.json")
     
     override init() {
         super.init()

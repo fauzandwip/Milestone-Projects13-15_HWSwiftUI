@@ -2,7 +2,7 @@
 //  ContactCoreData+CoreDataProperties.swift
 //  FriendlyContact
 //
-//  Created by Fauzan Dwi Prasetyo on 21/07/23.
+//  Created by Fauzan Dwi Prasetyo on 24/07/23.
 //
 //
 
@@ -19,11 +19,13 @@ extension ContactCoreData {
     @NSManaged public var contactName: String?
     @NSManaged public var id: UUID?
     @NSManaged public var imagePath: String?
-    
+    @NSManaged public var latitude: Double
+    @NSManaged public var longitude: Double
+    @NSManaged public var locationRecord: Bool
+
     var name: String {
         contactName ?? "Unknown name"
     }
-
 }
 
 extension ContactCoreData : Identifiable {

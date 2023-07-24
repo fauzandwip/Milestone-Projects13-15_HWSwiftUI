@@ -12,8 +12,9 @@ struct Contact: Identifiable, Codable, Comparable {
     var id = UUID()
     var name: String
     var imagePath: String?
-    var latitude: Double? = nil
-    var longitude: Double? = nil
+    var locationRecord: Bool = false
+    var latitude: Double = 0
+    var longitude: Double = 0
     
     var image: Image {
         if let data = ImageUtils().getImage(imagePath: imagePath) {
@@ -25,8 +26,7 @@ struct Contact: Identifiable, Codable, Comparable {
     }
     
     var coordinate: CLLocationCoordinate2D? {
-        guard let latitude = latitude else { return nil }
-        guard let longitude = longitude else { return nil }
+        guard locationRecord else { return nil }
         
         return .init(latitude: latitude, longitude: longitude)
     }
